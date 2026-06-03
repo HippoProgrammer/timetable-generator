@@ -27,10 +27,10 @@ subjects = [
 
 start = time.perf_counter()
 
-with open('students.csv','w') as csvfile:
+with open("students.csv", "w") as csvfile:
     writer = csv.writer(csvfile)
     for student in range(numStudents):
-        studentID = [f'student{student}']
+        studentID = [f"student{student}"]
         studentSubjects = sample(subjects, numSubjectPer)
         writer.writerow(studentID + studentSubjects)
 
