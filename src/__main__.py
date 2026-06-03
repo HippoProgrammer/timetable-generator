@@ -17,8 +17,15 @@ timetable-generator
 """
 
 import argparse
+import yaml
 
 parser = argparse.ArgumentParser(
     prog = 'timetable-generator',
     description = 'generates timetables'
 )
+
+parser.add_argument('filename')
+args = parser.parse_args()
+
+with open(args.filename, 'r') as file:
+    config = yaml.safe_load(file)
