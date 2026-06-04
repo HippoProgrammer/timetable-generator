@@ -1,5 +1,7 @@
-mod student_gen;
-mod teacher_gen;
+mod config {
+    pub mod student_gen;
+    pub mod teacher_gen;
+}
 
 use std::time::Instant;
 
@@ -30,12 +32,12 @@ fn main() {
 
     match &cli.command {
         Commands::Studentgen { num } => {
-            if let Err(e) = student_gen::run(*num) {
+            if let Err(e) = config::student_gen::run(*num) {
                 eprintln!("Error generating students: {}", e);
             }
         }
         Commands::Teachergen { num } => {
-            if let Err(e) = teacher_gen::run(*num) {
+            if let Err(e) = config::teacher_gen::run(*num) {
                 eprintln!("Error generating teachers: {}", e);
             }
         }
